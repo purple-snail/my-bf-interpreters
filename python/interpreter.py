@@ -53,15 +53,12 @@ while code_pointer < len(instructions):
         if cells[cell_pointer] != 0:
             code_pointer = brackets[code_pointer]
     elif instructions[code_pointer] == '.':
-        # if code_pointer != 0 and instructions[code_pointer - 1] == ',' and instructions[code_pointer + 1] == ',' or code_pointer != len(instructions) - 1 and instructions[code_pointer + 1] == ',':
-        #     sys.stdout.write(chr(cells[cell_pointer]) + '\n')
-        # else:
-        #     sys.stdout.write(chr(cells[cell_pointer]))
         print_output.append(chr(cells[cell_pointer]))
     elif instructions[code_pointer] == ',':
         if len(user_input) == 0:
             if len(print_output) > 0:
                 print(''.join(print_output))
+                print_output.clear()
             user_input = list(input(': '))
         cells[cell_pointer] = ord(user_input[0])
         user_input.pop(0)
